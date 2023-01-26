@@ -1,0 +1,15 @@
+version: "0.1"
+services:
+
+  detection:
+    build: .
+    working_dir: /app
+    volumes:
+      - .:/app    
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
