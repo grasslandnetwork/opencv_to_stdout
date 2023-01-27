@@ -1,24 +1,3 @@
-# import cv2
-
-# input_rtsp = "tcp://10.0.0.85:5000"
-# #input_rtsp = "tcp://10.0.0.230:5001"
-# # # input_rtsp = "/dev/video0"
-
-# cap = cv2.VideoCapture(input_rtsp)
-
-# while True:
-#     ret, frame = cap.read()
-    
-#     cv2.imshow('frame', frame)
-
-
-#     if cv2.waitKey(1) == ord('q'):
-#         break
-    
-# # When everything done, release the capture
-# cap.release()
-# cv2.destroyAllWindows()
-
 # from https://stackoverflow.com/a/52506614/8941739
 
 import numpy as np
