@@ -28,10 +28,10 @@ import time
 from imutils.video import VideoStream
 import datetime
 
-input_rtsp = "tcp://10.0.0.85:5000"
+# input_rtsp = "tcp://10.0.0.85:5000"
 # input_rtsp = "tcp://10.0.0.230:5001"
 # input_rtsp = "/dev/video0"
-# input_rtsp = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4"
+input_rtsp = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4"
 
 # start the video stream thread 
 
