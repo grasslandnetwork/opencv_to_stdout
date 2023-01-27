@@ -33,20 +33,20 @@ import datetime
 # input_rtsp = "/dev/video0"
 input_rtsp = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4"
 
-# start the video stream thread 
-
+# start the video stream thread and give the camera sensor time to warmup and feed the buffer
 vs = VideoStream(input_rtsp).start()
-
+time.sleep(1.0)
 while True:
     frame = vs.read()
 
-    # grab the current timestamp and draw it on the frame
-    timestamp = datetime.datetime.now()
-    cv2.putText(frame, timestamp.strftime(
-        "%A %d %B %Y %I:%M:%S%p"), (10, frame.shape[0] - 10),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
-    
-    sys.stdout.buffer.write(frame.tobytes())
+    if frame is not None:
+        # grab the current timestamp and draw it on the frame
+        timestamp = datetime.datetime.now()
+        cv2.putText(frame, timestamp.strftime(
+            "%A %d %B %Y %I:%M:%S%p"), (10, frame.shape[0] - 10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
 
-cap.release()
+        sys.stdout.buffer.write(frame.tobytes())
+
+
 vs.stop()
